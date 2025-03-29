@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/ci.yml'
+      - 'thesis/**'
+      - '**/CMakeLists.txt'
+
+jobs:
+  build-pdf:
+    name: Render PDF
+    runs-on: ubuntu-latest
+    steps:
+      - name: Initialize repository
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
+          sudo apt-get install -q -y --no-install-recommends \
+            biber \
+            fontconfig \
+            latexmk \
+            texlive-bibtex-extra \
+            texlive-fonts-recommended \
+            texlive-lang-cyrillic \
+            texlive-latex-extra \
+            texlive-xetex \
+            ttf-mscorefonts-installer
+      - name: Build documents
+        run: |
+          cmake -S . -B build -G Ninja
+          cmake --build build --target pdf
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: thesis-pdf
+          path: build/docs/*.pdf

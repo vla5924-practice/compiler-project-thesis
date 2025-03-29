@@ -1,0 +1,109 @@
+% Required TeX compilation engine: XeLaTeX
+\documentclass[a4paper,14pt]{extarticle}
+
+% Поля
+\usepackage[left=3cm,right=1.5cm,top=2cm,bottom=2cm]{geometry}
+
+% Кириллица с поддержкой переносов
+\usepackage[russian]{babel}
+\usepackage[autostyle=true]{csquotes}
+\usepackage{microtype}
+\tolerance=1000
+\sloppy
+
+% Таблицы
+\usepackage{array}
+\usepackage{booktabs}
+
+% Код
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    frame=single,
+    breaklines=true,
+    tabsize=4
+}
+
+% Графика
+\usepackage{graphicx}
+\usepackage{amssymb}
+
+% Шрифты
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
+% Интервал
+\usepackage{setspace}
+\onehalfspacing
+
+% Красная строка
+\usepackage{indentfirst}
+\setlength{\parindent}{1.25cm}
+
+% Цвет текста
+\usepackage{xcolor}
+\color{black}
+
+% Создание оглавления
+\usepackage{hyperref}
+\newcommand{\nosubsection}[1]{%
+  \refstepcounter{subsection}%
+  \subsection*{\thesubsection\hspace{1em}#1}%
+}
+
+% Оглавление на отдельной странице
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+% Оформление источников по ГОСТу
+\usepackage[style=gost-numeric,sortlocale=ru_RU,natbib=true]{biblatex}
+\addbibresource{bibliography.bib}
+
+\begin{document}
+
+\begin{titlepage}
+  \begin{center}
+    МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ\\
+    Федеральное государственное автономное образовательное учреждение высшего образования\\
+    \textbf{«Национальный исследовательский Нижегородский государственный университет им. Н.И. Лобачевского» (ННГУ)}\\
+    \vspace*{\fill}
+    {\LARGE Разработка компилятора.\\и тд}\\
+    \vspace{2cm}
+  \end{center}
+  \hfill
+  \begin{minipage}{0.4\textwidth}
+    \raggedright
+    \textbf{Выполнил:}\\
+    Власов Максим Сергеевич,\\
+    студент группы 3823М1ПМкн\\
+  \end{minipage}
+  \vspace*{\fill}
+  \begin{center}
+    Нижний Новгород\\
+    2025
+  \end{center}
+\end{titlepage}
+
+\newpage
+\setcounter{page}{2}
+\tableofcontents
+
+\input{chapters/intro}
+\input{chapters/overview}
+\input{chapters/structure}
+\input{chapters/language}
+\input{chapters/outro}
+
+% TODO: remove
+\input{chapters/bib-test}
+
+\newpage
+\addcontentsline{toc}{section}{Список литературы}
+\printbibliography
+
+\end{document}
