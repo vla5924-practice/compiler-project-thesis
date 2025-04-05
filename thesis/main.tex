@@ -1,5 +1,5 @@
 % Required TeX compilation engine: XeLaTeX
-\documentclass[a4paper,14pt]{extarticle}
+\documentclass[a4paper,12pt]{extarticle}
 
 % Поля
 \usepackage[left=3cm,right=1.5cm,top=2cm,bottom=2cm]{geometry}
@@ -72,15 +72,23 @@
     Федеральное государственное автономное образовательное учреждение высшего образования\\
     \textbf{«Национальный исследовательский Нижегородский государственный университет им. Н.И. Лобачевского» (ННГУ)}\\
     \vspace*{\fill}
-    {\LARGE Разработка компилятора.\\и тд}\\
+    {\LARGE
+      Разработка компилятора.
+      Дерево операций как промежуточное представление программы.
+      Построение и трансформации.
+    }\\
     \vspace{2cm}
   \end{center}
   \hfill
-  \begin{minipage}{0.4\textwidth}
+  \begin{minipage}{0.45\textwidth}
     \raggedright
     \textbf{Выполнил:}\\
     Власов Максим Сергеевич,\\
     студент группы 3823М1ПМкн\\
+    \vspace{1cm}
+    \textbf{Научный руководитель:}\\
+    доцент кафедры ВВСП, к. т. н.\\
+    Сысоев Александр Владимирович
   \end{minipage}
   \vspace*{\fill}
   \begin{center}
@@ -98,6 +106,8 @@
 \input{chapters/structure}
 \input{chapters/language}
 \input{chapters/optree}
+\input{chapters/converter}
+\input{chapters/semantizer}
 \input{chapters/codegen}
 \input{chapters/outro}
 
