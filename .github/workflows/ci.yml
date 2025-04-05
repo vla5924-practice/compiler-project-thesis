@@ -9,6 +9,10 @@ on:
       - 'thesis/**'
       - '**/CMakeLists.txt'
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   build-pdf:
     name: Render PDF
@@ -34,7 +38,17 @@ jobs:
           cmake -S . -B build -G Ninja
           cmake --build build --target pdf
       - name: Upload artifacts
+        id: artifacts
         uses: actions/upload-artifact@v4
         with:
           name: thesis-pdf
           path: build/docs/*.pdf
+      - name: Post a download link
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          pr-number: 1
+          message: |
+            ${{ github.event.head_commit.message }}
+
+            Commit: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
+            Artifacts: ${{ steps.artifacts.outputs.artifact-url }}
