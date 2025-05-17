@@ -2,7 +2,7 @@
 \documentclass[a4paper,12pt]{extarticle}
 
 % Поля
-\usepackage[left=3cm,right=1.5cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[left=2.5cm,right=1.5cm,top=2cm,bottom=2cm]{geometry}
 
 % Кириллица с поддержкой переносов
 \usepackage[russian]{babel}
@@ -41,6 +41,15 @@
 \usepackage{setspace}
 \onehalfspacing
 
+% Заголовки
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{0pt}{24pt}
+\titlespacing*{\subsection}{0pt}{24pt}{12pt}
+\titleformat*{\section}{\normalfont\fontsize{16pt}{\baselinestretch\baselineskip}\selectfont\bfseries}
+\titleformat*{\subsection}{\normalfont\fontsize{14pt}{\baselinestretch\baselineskip}\selectfont\bfseries}
+% \renewcommand{\thesection}{\arabic{section}.}
+% \renewcommand{\thesubsection}{\thesection\arabic{subsection}.}
+
 % Красная строка
 \usepackage{indentfirst}
 \setlength{\parindent}{1.25cm}
@@ -58,7 +67,13 @@
 
 % Оглавление на отдельной странице
 \usepackage{tocloft}
+\setlength{\cftbeforesecskip}{2pt}
+\setlength{\cftbeforesubsecskip}{2pt}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
+\renewcommand{\cftsubsecfont}{\normalfont}
+\renewcommand{\cftsubsecpagefont}{\normalfont}
 
 % Оформление источников по ГОСТу
 \usepackage[style=gost-numeric,sortlocale=ru_RU,natbib=true]{biblatex}
@@ -67,28 +82,45 @@
 \begin{document}
 
 \begin{titlepage}
+  \fontsize{14pt}{16.8pt}\selectfont
   \begin{center}
     МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ\\
     Федеральное государственное автономное образовательное учреждение высшего образования\\
     \textbf{«Национальный исследовательский Нижегородский государственный университет им. Н.И. Лобачевского» (ННГУ)}\\
+    \vspace{1cm}
+    \textbf{Институт информационных технологий, математики и механики}\\
+    \textbf{Кафедра высокопроизводительных вычислений и системного программирования}\\
+    Направление подготовки: «Прикладная математика и информатика»\\
+    Магистерская программа: «Компьютерные науки и приложения»\\
     \vspace*{\fill}
-    {\LARGE
-      Разработка компилятора.
+    {\Large\textbf{МАГИСТЕРСКАЯ ДИССЕРТАЦИЯ}}\\
+    \vspace{0.4cm}
+    на тему:\\
+    {\large\textbf{
+      <<Разработка компилятора.
       Дерево операций как промежуточное представление программы.
-      Построение и трансформации.
-    }\\
-    \vspace{2cm}
+      Построение и трансформации>>
+    }}\\
+    \vspace*{\fill}
   \end{center}
   \hfill
   \begin{minipage}{0.45\textwidth}
     \raggedright
     \textbf{Выполнил:}\\
-    Власов Максим Сергеевич,\\
     студент группы 3823М1ПМкн\\
-    \vspace{1cm}
+    Власов Максим Сергеевич\\
+    \vspace{0.4cm}
+    \hrulefill\\
+    \vspace*{-0.5\baselineskip}
+    \noindent\hfill{\small подпись}\hfill\null\\
+    \vspace{0.4cm}
     \textbf{Научный руководитель:}\\
     доцент кафедры ВВСП, к. т. н.\\
-    Сысоев Александр Владимирович
+    Сысоев Александр Владимирович\\
+    \vspace{0.4cm}
+    \hrulefill\\
+    \vspace*{-0.5\baselineskip}
+    \noindent\hfill{\small подпись}\hfill\null\\
   \end{minipage}
   \vspace*{\fill}
   \begin{center}
