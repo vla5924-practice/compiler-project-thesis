@@ -102,8 +102,9 @@ struct ConverterContext {
 \end{itemize}
 
 \subsection{Основной класс Converter}
+\label{sec:converter_class}
 
-В программной реализации для работы с конвертером представлен класс Converter, который содержит единственный статический метод \verb|process|.
+В программной реализации для работы с конвертером представлен класс \verb|Converter|, который содержит единственный статический метод \verb|process|.
 Этот метод получает на вход синтаксическое дерево (объект типа \verb|SyntaxTree|), а возвращает построенное дерево операций (объект типа \verb|Program|).
 
 \begin{lstlisting}[language=C++, caption=Объявление класса Converter]
