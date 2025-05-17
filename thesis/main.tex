@@ -19,14 +19,14 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \lstset{
-    basicstyle=\ttfamily\small,
-    keywordstyle=\color{blue},
-    commentstyle=\color{gray},
-    numbers=left,
-    numberstyle=\tiny\color{gray},
-    frame=single,
-    breaklines=true,
-    tabsize=4
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  frame=single,
+  breaklines=true,
+  tabsize=4
 }
 
 % Графика
@@ -41,14 +41,23 @@
 \usepackage{setspace}
 \onehalfspacing
 
+% Списки
+\usepackage{enumitem}
+\setlist{nosep}
+\setlist[enumerate,itemize]{
+  leftmargin=\parindent,
+  labelwidth=0.5em,
+  labelsep=0.5em,
+  itemindent=0pt,
+  align=left
+}
+
 % Заголовки
 \usepackage{titlesec}
 \titlespacing*{\section}{0pt}{0pt}{24pt}
 \titlespacing*{\subsection}{0pt}{24pt}{12pt}
 \titleformat*{\section}{\normalfont\fontsize{16pt}{\baselinestretch\baselineskip}\selectfont\bfseries}
 \titleformat*{\subsection}{\normalfont\fontsize{14pt}{\baselinestretch\baselineskip}\selectfont\bfseries}
-% \renewcommand{\thesection}{\arabic{section}.}
-% \renewcommand{\thesubsection}{\thesection\arabic{subsection}.}
 
 % Красная строка
 \usepackage{indentfirst}
